@@ -1,11 +1,29 @@
 import Image from "next/image";
+import classNames from "classnames";
+import { useState } from "react";
 import FileUploadButton from "../public/components/uploadButton";
 import SelectColumn from "../public/components/selectColumn";
 
 export default function Home() {
+  const [message, setMessage] = useState("");
+  const maxLength = 10;
+
+  const handleChange = (event) => {
+    const inputValue = event.target.value;
+
+    if (inputValue.length <= maxLength) {
+      setMessage(inputValue);
+    }
+  };
+  const reminingCharacter = maxLength - message.length;
   const handleFileUpload = (file) => {
     console.log("Uploaded file:", file);
   };
+
+  const counterClassName = classNames({
+    "text-gray-400": reminingCharacter !== 0,
+    "text-red-500": reminingCharacter === 1,
+  });
 
   return (
     <div>
@@ -18,9 +36,9 @@ export default function Home() {
           <div className="flex flex-row items-center gap-x-[160px] relative">
             <div className="font-bold text-[24px]">Upload Excel File</div>
             <div className="flex flex-col flex-1">
-              <div className="text-[#ff0000] font-bold absolute -mt-[24px]">
+              {/* <div className="text-[#ff0000] font-bold absolute -mt-[24px]">
                 Invalid file type. Please upload again
-              </div>
+              </div> */}
               <FileUploadButton onFileUpload={handleFileUpload} />
             </div>
 
@@ -30,13 +48,33 @@ export default function Home() {
               </button>
             </div>
           </div>
+          {/* set 2 */}
           <div className="flex flex-row gap-x-[350px]">
             <div className=""></div>
             <div className="flex flex-col">
               <div className="text-[24px] mt-1">Select Required Columns</div>
-              <SelectColumn/>
-          
-                          </div>
+              <SelectColumn />
+            </div>
+          </div>
+        </div>
+        <div className="px-[80px] pt-[40px]">
+          <div className="flex flex-row items-center gap-x-[185px]">
+            <div className="font-bold text-[24px]">Input Message</div>
+            <div className="relative">
+              <textarea
+                className="w-[500px] border border-[2px] border-[#000000] rounded-md px-2"
+                name="message"
+                rows="6"
+                cols="50"
+                value={message}
+                onChange={handleChange}
+                placeholder="Please input message pattern..."
+              ></textarea>
+              <div className="absolute bottom-2 right-2 ${counterClassName}">
+                {/* {message.length}/{maxLength} */}
+                {reminingCharacter}
+              </div>
+            </div>
           </div>
         </div>
       </div>

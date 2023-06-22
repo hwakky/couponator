@@ -11,13 +11,19 @@ function Child({ control, checkboxNames }) {
   });
 
   return (
-    <div className="flex flex-row">
+    <div>
+
+    <div className="flex flex-row absolute">
       {selectedValues.map((name) => (
-        <div key={name} className="px-2 py-1 border border-[#F37020] border-[2px] rounded-[14px] mr-1">
-          <span>{name}</span>
+        // <div key={name} className="px-2 py-1 border border-[#F37020] border-[2px] rounded-[14px] mr-1">
+        //   <span>{name}</span>
+        // </div>
+         <div key={name} className="px-2 py-1 border border-[#F37020] border-[2px] rounded-[14px] mr-1">
+          <button>{name}</button>
         </div>
-      ))}
+        ))}
     </div>
+        </div>
   );
 }
 
