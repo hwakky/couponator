@@ -6,7 +6,7 @@ import SelectColumn from "../public/components/selectColumn";
 
 export default function Home() {
   const [message, setMessage] = useState("");
-  const maxLength = 10;
+  const maxLength = 250;
 
   const handleChange = (event) => {
     const inputValue = event.target.value;
@@ -21,8 +21,8 @@ export default function Home() {
   };
 
   const counterClassName = classNames({
-    "text-gray-400": reminingCharacter !== 0,
-    "text-red-500": reminingCharacter === 1,
+    "text-gray-400": reminingCharacter > 0,
+    "text-red-500": reminingCharacter === 0,
   });
 
   return (
@@ -58,21 +58,22 @@ export default function Home() {
           </div>
         </div>
         <div className="px-[80px] pt-[40px]">
-          <div className="flex flex-row items-center gap-x-[185px]">
+          <div className="flex flex-row  gap-x-[185px]">
             <div className="font-bold text-[24px]">Input Message</div>
             <div className="relative">
               <textarea
-                className="w-[500px] border border-[2px] border-[#000000] rounded-md px-2"
+                className="w-[500px] border-[2px] border-[#000000] rounded-md px-2 resize-none"
                 name="message"
                 rows="6"
-                cols="50"
+                cols="50"อ
                 value={message}
                 onChange={handleChange}
                 placeholder="Please input message pattern..."
               ></textarea>
-              <div className="absolute bottom-2 right-2 ${counterClassName}">
-                {/* {message.length}/{maxLength} */}
+              <div className="absolute bottom-2 right-2">
+                <div className= {counterClassName}>
                 {reminingCharacter}
+                </div>
               </div>
             </div>
           </div>
