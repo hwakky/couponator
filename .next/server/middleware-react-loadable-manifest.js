@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"index.js -> ../public/components/uploadButton\":{\"id\":\"index.js -> ../public/components/uploadButton\",\"files\":[\"static/chunks/public_components_uploadButton_js.js\"]}}"

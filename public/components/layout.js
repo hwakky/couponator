@@ -10,9 +10,8 @@ export default function Layout({ children }) {
       background: `no-repeat url(${background.src})`
     }}
     >
-      <div className=" w-[90%] h-[90%] bg-white rounded-[30px]">
       <main>{children}</main>
-      </div>
+
     </div>
   );
 }

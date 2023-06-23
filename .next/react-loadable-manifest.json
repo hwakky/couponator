@@ -1,1 +1,8 @@
-{}
+{
+  "index.js -> ../public/components/uploadButton": {
+    "id": "index.js -> ../public/components/uploadButton",
+    "files": [
+      "static/chunks/public_components_uploadButton_js.js"
+    ]
+  }
+}
